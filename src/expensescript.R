@@ -1,84 +1,18 @@
 rm(list = ls(all = TRUE)) #CLEAR WORKSPACE
-source("getData.r")
+setwd("C:/Users/eung.cho/Desktop/legdays/travelExpenseReport")
+source("src/getData.r")
+source("src/enrichData.r")
+source("src/summarizeData.r")
 
 # Import data!
-setwd("C:/Users/eung.cho/Desktop/legdays/travelExpenseReport")
 myRawData <- getCashTrailsData("data/CashTrails-20141015_1737.csv")
-myArrivalDepartures <- getItinerary("data/destinations.csv")
-
-allocateAccommodationSpendingAndSort <- function(aData) {
-  # Allocate accomodation spending
-  myAccommData <- subset(aData, aData$Tags=="Accommodation")
-  myNonAccommData <- subset(aData, !aData$Tags=="Accommodation")
-  myAccommData$Note <- sapply(myAccommData$Note, function(x) if (is.na(as.numeric(x))) "1" else x)
-  myAllocAccomData<- myAccommData[which(is.na(myAccommData$Amount)), ]
-  allocateOutAccom <- function(aDataFrameRow) {
-    myDate <- aDataFrameRow$Date
-    myTime <- aDataFrameRow$Time
-    myNights <- as.numeric(aDataFrameRow$Note)
-    myCost <- aDataFrameRow$Amount
-    myCurrency <- aDataFrameRow$Currency
-    myTags <- aDataFrameRow$Tags
-    myPerNightRate <- myCost / myNights
-    
-    theAllocRows <- data.frame(Date=character(myNights), Time=character(myNights), Amount=numeric(myNights), 
-                               Currency=character(myNights), Tags=character(myNights), Note=character(myNights))
-    theAllocRows$Date <- rep(myDate) + 0:(myNights-1)
-    theAllocRows$Time <- rep(myTime,myNights)
-    theAllocRows$Amount <- rep(myPerNightRate,myNights)
-    theAllocRows$Currency <- rep(myCurrency,myNights)
-    theAllocRows$Tags <- rep(myTags,myNights)
-    theAllocRows$Note <- rep("1",myNights)
-    
-    return(theAllocRows)
-  }
-  for (i in 1:dim(myAccommData)[1]) {
-    myAllocatedRows <- allocateOutAccom(myAccommData[i,])
-    myAllocAccomData <- rbind(myAllocAccomData, myAllocatedRows)
-    print(i/dim(myAccommData)[1])
-  }
-  theCombinedData<-rbind(myAllocAccomData,myNonAccommData)
-  theCombinedData <- theCombinedData[with(theCombinedData, order(theCombinedData$Date, theCombinedData$Time)), ]
-  return(theCombinedData)
-}
-
-assignCountry <- function(aRow,aArrivalDepartures) {
-  myDate<-as.Date(aRow[1])
-  myCurrency <-aRow[4]
-  myIsInDateRange <- mapply(function(d,a) d <= myDate && myDate <= a,aArrivalDepartures$Arrival, aArrivalDepartures$Departure)
-  if (sum(myIsInDateRange) == 1) {
-    theCountry <- aArrivalDepartures[myIsInDateRange,]$Country
-  } else if (sum(myIsInDateRange) > 1) {
-    myIsCurrency <- aArrivalDepartures$Currency == myCurrency
-    theCountry<- aArrivalDepartures$Country[myIsInDateRange & myIsCurrency][1]
-  }
-  return(theCountry)
-}
-assignCountryColumn <- function(aData, aArrivalDepartures) {
-  
-  theCountryColumn <- apply(aData, 1, function(x) assignCountry(x, aArrivalDepartures))
-  return(theCountryColumn)
-}
-getCountryDayCount <- function(aCountry, aArrivalDepartures) {
-  myIsCountry<-aArrivalDepartures$Country==aCountry
-  myArrivals<-aArrivalDepartures$Arrival[myIsCountry]
-  myDepartures<-aArrivalDepartures$Departure[myIsCountry]
-  myDepartures - myArrivals + 1
-}
+myItinerary <- getItinerary("data/destinations.csv")
+myFXRates <- getExchangeRates("data/fxrates.csv", unique(myRawData$Currency))
 
 myFormattedData <- formatCashTrailsData(myRawData)
-myCleanData <- allocateAccommodationSpendingAndSort(myFormattedData)
-myCurrencyExchangeRates <- getExchangeRateTable("fxrates.csv", unique(aCashTrailsData$Currency))
-myCleanData["Country"] <- assignCountryColumn(myCleanData,myArrivalDepartures)
+myEnrichedCTData <- enrichCTData(myFormattedData, myItinerary, myFXRates)
 
-myCountries <- unique(myCleanData["Country"])
-myCountriesDayCounts<-
-sapply(myCountries, function(x) )
-
-# Standardize amonuts to USD
-myCleanData$StandardizedAmount <- mapply(function(aCurrency, aAmount)
-                                      myCurrencyExchangeRates$Rate[myCurrencyExchangeRates$Currency == aCurrency] * aAmount,
-                                      myCleanData$Currency, myCleanData$Amount)
+myCountryDayCountTable <- getCountryDayCountTable(myItinerary)
 
 myCumSum<-cumsum(myCleanData$StandardizedAmount)
 plot( myCleanData$Date,myCumSum, type='h', col = as.factor(myCleanData$Country))

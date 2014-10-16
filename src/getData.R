@@ -11,7 +11,6 @@ getCashTrailsData <- function(aFileName) {
   theData <- formatCashTrailsData(myRenamedCTData)
   
   return(theData)
-  
 }
 
 extractRelevantCashTrailsColumns <- function(aData, aColumnNames){
@@ -34,11 +33,11 @@ formatCashTrailsData <- function(aData) {
 
 getItinerary<- function(aFileName) {
   myUnformattedItinerary <- read.csv(aFileName)
-  theItinerary<-formatCountryDates(myUnformattedItinerary)
+  theItinerary<-formatItinerary(myUnformattedItinerary)
   return(theItinerary)
 }
 
-formatCountryDates <- function(aItinerary) {
+formatItinerary <- function(aItinerary) {
   aItinerary$Arrival <- as.Date(aItinerary$Arrival)
   aItinerary$Departure <- as.Date(aItinerary$Departure)
   return(aItinerary)
@@ -48,7 +47,7 @@ getExchangeRates <- function(aFileName, aCurrencySymbols) {
   # Get FX rates!
   #http://www.oanda.com/currency/table
   myRawExchangeRates <- read.csv(aFileName)
-  theExchangeRates = data.frame(aCurrencySymbols, rep(9e9,length(aCurrencySymbols))
+  theExchangeRates = data.frame(aCurrencySymbols, rep(9e9,length(aCurrencySymbols)))
   colnames(theExchangeRates) <- c("Currency", "Rate")
   theExchangeRates$Rate <- sapply(theExchangeRates$Currency,
                                           function(x)
