@@ -42,5 +42,9 @@ constructTagCountryExpensePerDayMatrix <- function(aCTData, aCountryDayCountTabl
   
   rownames(theTagCountryExpensePerDayMatrix) <- myTags
   colnames(theTagCountryExpensePerDayMatrix) <- myCountries
+  
+  myCountryTotals <- apply(theTagCountryExpensePerDayMatrix, 2, sum)
+  theTagCountryExpensePerDayMatrix<-theTagCountryExpensePerDayMatrix[,order(myCountryTotals)]
+  
   return(theTagCountryExpensePerDayMatrix)
 }

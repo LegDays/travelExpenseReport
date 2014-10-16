@@ -21,6 +21,9 @@ myCountryDayCountTable <- getCountryDayCountTable(myItinerary)
 
 myTagCountryExpensePerDayMatrix <- constructTagCountryExpensePerDayMatrix(myFilteredCTData, myCountryDayCountTable)
 
+write.csv(myTagCountryExpensePerDayMatrix, file = "output/tagCountryExpensePerDay.csv")
+
+
 barplot(myTagCountryExpensePerDayMatrix, col = rainbow(20))
 
 plot(myEnrichedCTData$Date, cumsum(myEnrichedCTData$StandardizedAmount), type='h',
