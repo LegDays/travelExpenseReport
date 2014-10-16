@@ -1,30 +1,11 @@
 rm(list = ls(all = TRUE)) #CLEAR WORKSPACE
+source("getData.r")
 
 # Import data!
-setwd("C:/Users/eung.cho/Desktop/legdays")
-myRawData <- read.csv("CashTrails-20141015_1737.csv")
-myArrivalDepartures <- read.csv("destinations.csv")
-myArrivalDepartures$Arrival <- as.Date(myArrivalDepartures$Arrival)
-myArrivalDepartures$Departure <- as.Date(myArrivalDepartures$Departure)
+setwd("C:/Users/eung.cho/Desktop/legdays/travelExpenseReport")
+myRawData <- getCashTrailsData("data/CashTrails-20141015_1737.csv")
+myArrivalDepartures <- getItinerary("data/destinations.csv")
 
-formatCashTrailsData <- function(aRawData) {
-  # Format data!
-  aRawData <- data.frame(lapply(aRawData, as.character), stringsAsFactors=FALSE)
-  
-  # Rename columns
-  myRawColumns <- c("ï..Date","Time", "Amount...Withdrawal.Amount", "Currency.Code", "Tags", "Note")
-  myNewColumns <- c("Date", "Time", "Amount", "Currency", "Tags", "Note")
-  mySwitchColumns = data.frame(myRawColumns, myNewColumns)
-  theData<- aRawData[,(names(aRawData) %in% mySwitchColumns[,"myRawColumns"])]
-  for (i in 1:dim(mySwitchColumns)[1]) {
-    myRawColumnName <- as.character(mySwitchColumns[i,1])
-    myNewColumnName <- as.character(mySwitchColumns[i,2])
-    names(theData)[names(theData)==myRawColumnName] <- myNewColumnName
-  }
-  theData$Amount <- -as.numeric(theData$Amount)
-  theData$Date <- as.Date(theData$Date)
-  return(theData)
-}
 allocateAccommodationSpendingAndSort <- function(aData) {
   # Allocate accomodation spending
   myAccommData <- subset(aData, aData$Tags=="Accommodation")
@@ -60,19 +41,7 @@ allocateAccommodationSpendingAndSort <- function(aData) {
   theCombinedData <- theCombinedData[with(theCombinedData, order(theCombinedData$Date, theCombinedData$Time)), ]
   return(theCombinedData)
 }
-getExchangeRateTable <- function(aCashTrailsData) {
-  #rm(myRawData)
-  # Get FX rates!
-  #http://www.oanda.com/currency/table
-  myRawExchangeRates <- read.csv("fxrates.csv")
-  myCurrencySymbols <- unique(aCashTrailsData$Currency)
-  theCurrencyExchangeRates = data.frame(myCurrencySymbols, 9e9+0*1:length(myCurrencySymbols))
-  colnames(theCurrencyExchangeRates) <- c("Currency", "Rate")
-  theCurrencyExchangeRates$Rate <- sapply(theCurrencyExchangeRates$Currency,
-                                         function(x)
-                                           myRawExchangeRates$USD.1.Unit[myRawExchangeRates$Code == as.character(x)])
-  return(theCurrencyExchangeRates)
-}
+
 assignCountry <- function(aRow,aArrivalDepartures) {
   myDate<-as.Date(aRow[1])
   myCurrency <-aRow[4]
@@ -99,7 +68,7 @@ getCountryDayCount <- function(aCountry, aArrivalDepartures) {
 
 myFormattedData <- formatCashTrailsData(myRawData)
 myCleanData <- allocateAccommodationSpendingAndSort(myFormattedData)
-myCurrencyExchangeRates <- getExchangeRateTable(myCleanData)
+myCurrencyExchangeRates <- getExchangeRateTable("fxrates.csv", unique(aCashTrailsData$Currency))
 myCleanData["Country"] <- assignCountryColumn(myCleanData,myArrivalDepartures)
 
 myCountries <- unique(myCleanData["Country"])
