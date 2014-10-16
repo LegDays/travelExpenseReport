@@ -33,8 +33,8 @@ getStandardizedAmountColumn <- function(aCTData, aFXRates) {
 
 expandAccommodationSpending <- function(aData) {
   # Allocate accomodation spending
-  myAccommData <- subset(aData, aData$Tags=="Accommodation")
-  myNonAccommData <- subset(aData, !aData$Tags=="Accommodation")
+  myAccommData <- subset(aData, aData$Tag=="Accommodation")
+  myNonAccommData <- subset(aData, !aData$Tag=="Accommodation")
   myAccommData$Note <- sapply(myAccommData$Note, function(x) if (is.na(as.numeric(x))) "1" else x)
   myAllocAccomData<- myAccommData[which(is.na(myAccommData$Amount)), ]
   allocateOutAccom <- function(aDataFrameRow) {
@@ -43,16 +43,16 @@ expandAccommodationSpending <- function(aData) {
     myNights <- as.numeric(aDataFrameRow$Note)
     myCost <- aDataFrameRow$Amount
     myCurrency <- aDataFrameRow$Currency
-    myTags <- aDataFrameRow$Tags
+    myTags <- aDataFrameRow$Tag
     myPerNightRate <- myCost / myNights
     
     theAllocRows <- data.frame(Date=character(myNights), Time=character(myNights), Amount=numeric(myNights), 
-                               Currency=character(myNights), Tags=character(myNights), Note=character(myNights))
+                               Currency=character(myNights), Tag=character(myNights), Note=character(myNights))
     theAllocRows$Date <- rep(myDate) + 0:(myNights-1)
     theAllocRows$Time <- rep(myTime,myNights)
     theAllocRows$Amount <- rep(myPerNightRate,myNights)
     theAllocRows$Currency <- rep(myCurrency,myNights)
-    theAllocRows$Tags <- rep(myTags,myNights)
+    theAllocRows$Tag <- rep(myTags,myNights)
     theAllocRows$Note <- rep("1",myNights)
     
     return(theAllocRows)

@@ -4,7 +4,7 @@ getCashTrailsData <- function(aFileName) {
   
   # Rename columns
   myOldColumns <- c("ï..Date","Time", "Amount...Withdrawal.Amount", "Currency.Code", "Tags", "Note")
-  myNewColumns <- c("Date", "Time", "Amount", "Currency", "Tags", "Note")
+  myNewColumns <- c("Date", "Time", "Amount", "Currency", "Tag", "Note")
   
   myRelevantCTData <- extractRelevantCashTrailsColumns(myCharacterCTData, myOldColumns)
   myRenamedCTData <- renameCashTrailsColumns(myRelevantCTData, myOldColumns, myNewColumns)
