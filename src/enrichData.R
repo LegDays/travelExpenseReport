@@ -3,7 +3,11 @@ enrichCTData <- function(aCTData, aItinerary, aFXRates) {
   aCTData <- aCTData[with(aCTData, order(aCTData$Date, aCTData$Time)), ]
   
   aCTData["Country"] <- getCountryColumn(aCTData, aItinerary)
+  aCTData["Category"] <- getCategoryColumn(aCTData)
   aCTData["StandardizedAmount"] <- getStandardizedAmountColumn(aCTData, aFXRates)
+  aCTData["TagCumSum"] <- getTagCumSumColumn(aCTData)
+  aCTData["UNIXTime"] <- getUNIXTimeColumn(aCTData)
+  
   return(aCTData)
 }
 
@@ -25,10 +29,46 @@ getCountryColumn <- function(aCTData, aItinerary) {
   return(theCountryColumn)
 }
 
+assignCategory <- function(aTag) {
+  myLuxuryTags <- c("Massage", "Alcohol", "Gambling", "Tip", "Gift")
+  myTourismTags <- c("Tour", "Rental", "Entry", "Supplies", "Fees")
+  myCostOfLivingTags <- c("Accommodation", "Supplies", "Gym", "Food", "Internet",
+                          "Laundry", "Bathroom", "ATM", "Transit")
+  myTravelTags <- c("Plane", "Gas", "Taxi", "Bus")
+  return(aTag)
+}
+
+getCategoryColumn <- function(aCTData) {
+  theCountryColumn <- apply(aCTData, 1, function(x) assignCategory(x[5]))
+  return(theCountryColumn)
+}
+
 getStandardizedAmountColumn <- function(aCTData, aFXRates) {
   theStandardizedAmountColumn <- mapply(function(c, a) aFXRates$Rate[aFXRates$Currency == c] * a,
                                         aCTData$Currency, aCTData$Amount)
   return(theStandardizedAmountColumn)
+}
+
+getTagCumSums <- function(aCTData, aTag) {
+  # aCTData must be sorted
+  myIsTag <- aCTData$Tag == aTag
+  theTagCumSums <- cumsum(aCTData$StandardizedAmount[myIsTag])
+  return(theTagCumSums)
+}
+
+getTagCumSumColumn <- function(aCTData) {
+  myTags <- unique(aCTData$Tag)
+  theTagCumSumColumn <- rep(9e9, dim(aCTData)[1])
+  for (myTag in myTags) {
+    myIsTag <- aCTData$Tag == myTag
+    theTagCumSumColumn[myIsTag] <- getTagCumSums(aCTData, myTag)
+  }
+  return(theTagCumSumColumn)
+}
+
+getUNIXTimeColumn <- function(aCTData) {
+  theUNIXTimeColumn <- mapply(function(x, y) as.numeric(as.POSIXct(paste(x, y), format="%Y-%m-%d %H:%M")), aCTData$Date, aCTData$Time)
+  return(theUNIXTimeColumn)
 }
 
 expandAccommodationSpending <- function(aData) {

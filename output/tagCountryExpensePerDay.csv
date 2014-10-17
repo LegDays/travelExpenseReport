@@ -1,24 +1,530 @@
-"","Thailand","Laos","Philippines","Myanmar","Indonesia","Singapore","Australia","New Zealand","India","Nepal","Jordan","West Bank","Israel","Egypt","Turkey","Germany","Czech Republic","England","France","Norway","Sweden","South Africa","Namibia"
-"Transit",0.984845882352941,0.444472777777778,0.122289333333333,0.0114222222222222,0,0,4.9504,0.468875,0.013572,0.00469545454545455,0.4351125,1.84989,0.790895,0.091695652173913,1.77384727272727,4.04015625,0.74304,6.70416666666667,0.60333,2.8644,6.88545,1.29550804347826,0
-"Food",7.81923294117647,8.90748944444444,10.8994096666667,5.4998,7.395834825,19.753275,32.43968,24.435345,7.17159057142857,13.6841196969697,10.97191,10.7623,11.809805,7.12475217391304,13.5269159090909,5.565909375,13.139136,18.9432933333333,20.833644,25.6461333333333,20.93455,9.87255763913043,10.233145105
-"Sim",0.218047058823529,0,0,0,0,0,0.5824,0.605,0.1404,0,0,0,0,0,0.999090909090909,0,0,0,0,0,0,0.982934782608696,0.451931425
-"Taxi",0.672311764705882,1.49734611111111,1.19306666666667,1.86088888888889,1.526546875,0,0,1.5125,1.278576,1.11125757575758,1.7029525,1.3405,0,0.91695652173913,0.119890909090909,0,2.7072,3.48616666666667,0,0,0,6.72327391304348,0.0678225
-"Massage",1.8534,1.39952777777778,1.10358666666667,0,0.513125,0,0,0,0,0.500848484848485,0,0,0,0,1.71843636363636,0,0,0,0,0,0,0,0
-"Bus",4.39546529411765,3.16594444444444,3.72833333333333,2.58455555555556,0.982634375,0,0,11.6834575,3.38421371428571,0.187818181818182,1.662625,2.1831,7.4062625,2.00202173913043,7.24340909090909,7.6890625,0.52416,9.38583333333333,12.13758,29.9591933333333,0,5.09160217391304,13.11264
-"Accommodation",2.90729411764706,4.70116666666667,8.939052,5.27777777777778,5.028625,11.20335,12.1331392,14.5499475,7.414056,2.35711818181818,7.251875,21.7927,8.59595625,4.9741597826087,11.2612118181818,11.254375,10.33344,0,9.811464,15.708,13.2145,5.81736304347826,6.33018
-"Internet",0.152632941176471,0.2105,0.164046666666667,0.314111111111111,0.171896875,0,0.69888,0.075625,0.2106,0,0,0,0,0,0,0,0,0,0,0.308,0,0.55044347826087,0
-"Laundry",0.0908529411764706,0.0865666666666667,0.0596533333333333,0.165622222222222,0.0513125,0,0.396032,0.4764375,0.27144,0.125212121212121,0.4775625,0.8426,0,0.21395652173913,0.149863636363636,0,1.82016,0,0.507,0.616,0,0.511126086956522,0
-"Tour",1.27194117647059,0,0.969366666666667,1.71333333333333,3.20703125,0,0,0,2.8548,15.495,1.415,0,0,0,5.59490909090909,0,0,0,0,0,0,10.0259347826087,0
-"Supplies",0.272558823529412,0.140333333333333,0.0596533333333333,0.257,1.1511959375,9.19854,2.4367616,13.04395125,0.158652,0.953177272727273,0.3113,0,0,0.77024347826087,8.43508445454545,0,2.12544,0,0.88725,0.811066666666667,1.763385,0.165133043478261,0
-"Rental",1.09023529411765,0.806916666666667,0.372833333333333,2.17022222222222,0.38484375,0,1.04832,2.662,0,1.74670909090909,0,0,0,0.611304347826087,1.18725,0,0,0,0,0,0,0,0
-"Alcohol",0.472435294117647,0,0.432486666666667,0,0.130846875,0,4.068064,0,0,0,0,0,0,0,0.279745454545455,0.7921875,1.31904,0,0,0,0,0,0
-"Fees",0,0.245583333333333,0.924626666666667,0.0571111111111111,0.1603515625,0,0,0.2798125,0.756405714285714,2.18251515151515,3.5375,0.5745,5.76415,0.97654347826087,0.430272727272727,0.1584375,0,0,0,0,0,0,0
-"Gas",0,0.272888888888889,0,0.388355555555556,0.2565625,0,0.2912,0.9075,0,0.190948484848485,0,0,0,0,0.999090909090909,0,0,0,0,0,0,0,0.5652
-"Entry",0,0.350833333333333,0,0.00571111111111111,0.346359375,0,0,0,0.6084,0.959090909090909,4.45725,0,0.1005375,1.83696956521739,2.76048636363636,0,1.0368,0,0,0,0,0.688054347826087,0
-"ATM",0,0.421,0.8948,0.285555555555556,0.07696875,0,0.11648,0,0.118057142857143,0.500848484848485,0.007075,0,0,0,0,0,0,0,0,0,0,0,0
-"Gym",0,0.700144444444444,0.17896,0,0.02565625,0,0,0.529375,0.5148,0.0939090909090909,0.283,0,0,0.366782608695652,0.719345454545455,0,1.8432,0,1.2675,0,5.564,0,0
-"Bathroom",0,0.0140333333333333,0,0.0171333333333333,0,0,0,0,0,0,0,0.0383,0,0.0473760869565217,0.0399636363636364,0.2851875,0,0,0.04563,0.513333333333333,0,0,0
-"Gambling",0,0,11.9306666666667,0,0,0,0,0,0.1404,0,0,0,0,0,-7.74395363636364,7.921875,0,0,0,0,0,0,0
-"Tip",0,0,0,0.114222222222222,0.02565625,0,0,0,0.01872,1.26918909090909,0,0,0,0.163685652173913,0,0,0,0,0,0,0,0.0365651739130435,0.0474768
-"Gift",0,0,0,0.294122222222222,0.012828125,0,0,0,0.073476,0.0469545454545455,0.3679,0.1532,0,0.336217391304348,0.220799090909091,0,2.90304,0,0,0,0,0.0570102173913043,0
-"",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0299727272727273,0,0,0,0,0,0,0,0
+"","Country","Tag","StandardizedAmount"
+"1","Thailand","Transit",0.984845882352941
+"2","Thailand","Food",7.81923294117647
+"3","Thailand","Sim",0.218047058823529
+"4","Thailand","Taxi",0.672311764705882
+"5","Thailand","Massage",1.8534
+"6","Thailand","Bus",4.39546529411765
+"7","Thailand","Accommodation",2.90729411764706
+"8","Thailand","Internet",0.152632941176471
+"9","Thailand","Laundry",0.0908529411764706
+"10","Thailand","Tour",1.27194117647059
+"11","Thailand","Supplies",0.272558823529412
+"12","Thailand","Rental",1.09023529411765
+"13","Thailand","Alcohol",0.472435294117647
+"14","Thailand","Fees",0
+"15","Thailand","Gas",0
+"16","Thailand","Entry",0
+"17","Thailand","ATM",0
+"18","Thailand","Gym",0
+"19","Thailand","Bathroom",0
+"20","Thailand","Gambling",0
+"21","Thailand","Tip",0
+"22","Thailand","Gift",0
+"23","Thailand","",0
+"24","Laos","Transit",0.444472777777778
+"25","Laos","Food",8.90748944444444
+"26","Laos","Sim",0
+"27","Laos","Taxi",1.49734611111111
+"28","Laos","Massage",1.39952777777778
+"29","Laos","Bus",3.16594444444444
+"30","Laos","Accommodation",4.70116666666667
+"31","Laos","Internet",0.2105
+"32","Laos","Laundry",0.0865666666666667
+"33","Laos","Tour",0
+"34","Laos","Supplies",0.140333333333333
+"35","Laos","Rental",0.806916666666667
+"36","Laos","Alcohol",0
+"37","Laos","Fees",2.21025
+"38","Laos","Gas",0.272888888888889
+"39","Laos","Entry",0.350833333333333
+"40","Laos","ATM",0.421
+"41","Laos","Gym",0.700144444444444
+"42","Laos","Bathroom",0.0140333333333333
+"43","Laos","Gambling",0
+"44","Laos","Tip",0
+"45","Laos","Gift",0
+"46","Laos","",0
+"47","Philippines","Transit",0.122289333333333
+"48","Philippines","Food",10.8994096666667
+"49","Philippines","Sim",0
+"50","Philippines","Taxi",1.19306666666667
+"51","Philippines","Massage",1.10358666666667
+"52","Philippines","Bus",3.72833333333333
+"53","Philippines","Accommodation",8.939052
+"54","Philippines","Internet",0.164046666666667
+"55","Philippines","Laundry",0.0596533333333333
+"56","Philippines","Tour",0.969366666666667
+"57","Philippines","Supplies",0.0596533333333333
+"58","Philippines","Rental",0.372833333333333
+"59","Philippines","Alcohol",0.432486666666667
+"60","Philippines","Fees",0.924626666666667
+"61","Philippines","Gas",0
+"62","Philippines","Entry",0
+"63","Philippines","ATM",0.8948
+"64","Philippines","Gym",0.17896
+"65","Philippines","Bathroom",0
+"66","Philippines","Gambling",11.9306666666667
+"67","Philippines","Tip",0
+"68","Philippines","Gift",0
+"69","Philippines","",0
+"70","Myanmar","Transit",0.0114222222222222
+"71","Myanmar","Food",5.4998
+"72","Myanmar","Sim",0
+"73","Myanmar","Taxi",1.86088888888889
+"74","Myanmar","Massage",0
+"75","Myanmar","Bus",2.58455555555556
+"76","Myanmar","Accommodation",5.94444444444444
+"77","Myanmar","Internet",0.314111111111111
+"78","Myanmar","Laundry",0.165622222222222
+"79","Myanmar","Tour",1.71333333333333
+"80","Myanmar","Supplies",0.257
+"81","Myanmar","Rental",2.17022222222222
+"82","Myanmar","Alcohol",0
+"83","Myanmar","Fees",0.0571111111111111
+"84","Myanmar","Gas",0.388355555555556
+"85","Myanmar","Entry",0.00571111111111111
+"86","Myanmar","ATM",0.285555555555556
+"87","Myanmar","Gym",0
+"88","Myanmar","Bathroom",0.0171333333333333
+"89","Myanmar","Gambling",0
+"90","Myanmar","Tip",0.114222222222222
+"91","Myanmar","Gift",0.294122222222222
+"92","Myanmar","",0
+"93","Indonesia","Transit",0
+"94","Indonesia","Food",7.395834825
+"95","Indonesia","Sim",0
+"96","Indonesia","Taxi",1.526546875
+"97","Indonesia","Massage",0.513125
+"98","Indonesia","Bus",0.982634375
+"99","Indonesia","Accommodation",5.028625
+"100","Indonesia","Internet",0.171896875
+"101","Indonesia","Laundry",0.0513125
+"102","Indonesia","Tour",3.20703125
+"103","Indonesia","Supplies",1.1511959375
+"104","Indonesia","Rental",0.38484375
+"105","Indonesia","Alcohol",0.130846875
+"106","Indonesia","Fees",2.2769921875
+"107","Indonesia","Gas",0.2565625
+"108","Indonesia","Entry",0.346359375
+"109","Indonesia","ATM",0.07696875
+"110","Indonesia","Gym",0.02565625
+"111","Indonesia","Bathroom",0
+"112","Indonesia","Gambling",0
+"113","Indonesia","Tip",0.02565625
+"114","Indonesia","Gift",0.012828125
+"115","Indonesia","",0
+"116","Singapore","Transit",0
+"117","Singapore","Food",19.753275
+"118","Singapore","Sim",0
+"119","Singapore","Taxi",0
+"120","Singapore","Massage",0
+"121","Singapore","Bus",0
+"122","Singapore","Accommodation",11.20335
+"123","Singapore","Internet",0
+"124","Singapore","Laundry",0
+"125","Singapore","Tour",0
+"126","Singapore","Supplies",9.19854
+"127","Singapore","Rental",0
+"128","Singapore","Alcohol",0
+"129","Singapore","Fees",0
+"130","Singapore","Gas",0
+"131","Singapore","Entry",0
+"132","Singapore","ATM",0
+"133","Singapore","Gym",0
+"134","Singapore","Bathroom",0
+"135","Singapore","Gambling",0
+"136","Singapore","Tip",0
+"137","Singapore","Gift",0
+"138","Singapore","",0
+"139","Australia","Transit",4.9504
+"140","Australia","Food",32.43968
+"141","Australia","Sim",0.5824
+"142","Australia","Taxi",0
+"143","Australia","Massage",0
+"144","Australia","Bus",0
+"145","Australia","Accommodation",12.1331392
+"146","Australia","Internet",0.69888
+"147","Australia","Laundry",0.396032
+"148","Australia","Tour",0
+"149","Australia","Supplies",2.4367616
+"150","Australia","Rental",1.04832
+"151","Australia","Alcohol",4.068064
+"152","Australia","Fees",0
+"153","Australia","Gas",0.2912
+"154","Australia","Entry",0
+"155","Australia","ATM",0.11648
+"156","Australia","Gym",0
+"157","Australia","Bathroom",0
+"158","Australia","Gambling",0
+"159","Australia","Tip",0
+"160","Australia","Gift",0
+"161","Australia","",0
+"162","New Zealand","Transit",0.468875
+"163","New Zealand","Food",24.435345
+"164","New Zealand","Sim",0.605
+"165","New Zealand","Taxi",1.5125
+"166","New Zealand","Massage",0
+"167","New Zealand","Bus",11.6834575
+"168","New Zealand","Accommodation",14.5499475
+"169","New Zealand","Internet",0.075625
+"170","New Zealand","Laundry",0.4764375
+"171","New Zealand","Tour",0
+"172","New Zealand","Supplies",13.04395125
+"173","New Zealand","Rental",2.662
+"174","New Zealand","Alcohol",0
+"175","New Zealand","Fees",0.2798125
+"176","New Zealand","Gas",0.9075
+"177","New Zealand","Entry",0
+"178","New Zealand","ATM",0
+"179","New Zealand","Gym",0.529375
+"180","New Zealand","Bathroom",0
+"181","New Zealand","Gambling",0
+"182","New Zealand","Tip",0
+"183","New Zealand","Gift",0
+"184","New Zealand","",0
+"185","India","Transit",0.013572
+"186","India","Food",7.17159057142857
+"187","India","Sim",0.1404
+"188","India","Taxi",1.278576
+"189","India","Massage",0
+"190","India","Bus",3.38421371428571
+"191","India","Accommodation",7.414056
+"192","India","Internet",0.2106
+"193","India","Laundry",0.27144
+"194","India","Tour",2.8548
+"195","India","Supplies",0.158652
+"196","India","Rental",0
+"197","India","Alcohol",0
+"198","India","Fees",0.756405714285714
+"199","India","Gas",0
+"200","India","Entry",0.6084
+"201","India","ATM",0.118057142857143
+"202","India","Gym",0.5148
+"203","India","Bathroom",0
+"204","India","Gambling",0.1404
+"205","India","Tip",0.01872
+"206","India","Gift",0.073476
+"207","India","",0
+"208","Nepal","Transit",0.00469545454545455
+"209","Nepal","Food",13.6841196969697
+"210","Nepal","Sim",0
+"211","Nepal","Taxi",1.11125757575758
+"212","Nepal","Massage",0.500848484848485
+"213","Nepal","Bus",0.187818181818182
+"214","Nepal","Accommodation",2.35711818181818
+"215","Nepal","Internet",0
+"216","Nepal","Laundry",0.125212121212121
+"217","Nepal","Tour",15.495
+"218","Nepal","Supplies",0.953177272727273
+"219","Nepal","Rental",1.74670909090909
+"220","Nepal","Alcohol",0
+"221","Nepal","Fees",2.18251515151515
+"222","Nepal","Gas",0.190948484848485
+"223","Nepal","Entry",0.959090909090909
+"224","Nepal","ATM",0.500848484848485
+"225","Nepal","Gym",0.0939090909090909
+"226","Nepal","Bathroom",0
+"227","Nepal","Gambling",0
+"228","Nepal","Tip",1.26918909090909
+"229","Nepal","Gift",0.0469545454545455
+"230","Nepal","",0
+"231","Jordan","Transit",0.4351125
+"232","Jordan","Food",10.97191
+"233","Jordan","Sim",0
+"234","Jordan","Taxi",1.7029525
+"235","Jordan","Massage",0
+"236","Jordan","Bus",1.662625
+"237","Jordan","Accommodation",7.251875
+"238","Jordan","Internet",0
+"239","Jordan","Laundry",0.4775625
+"240","Jordan","Tour",1.415
+"241","Jordan","Supplies",0.3113
+"242","Jordan","Rental",0
+"243","Jordan","Alcohol",0
+"244","Jordan","Fees",3.5375
+"245","Jordan","Gas",0
+"246","Jordan","Entry",4.45725
+"247","Jordan","ATM",0.007075
+"248","Jordan","Gym",0.283
+"249","Jordan","Bathroom",0
+"250","Jordan","Gambling",0
+"251","Jordan","Tip",0
+"252","Jordan","Gift",0.3679
+"253","Jordan","",0
+"254","West Bank","Transit",1.84989
+"255","West Bank","Food",10.7623
+"256","West Bank","Sim",0
+"257","West Bank","Taxi",1.3405
+"258","West Bank","Massage",0
+"259","West Bank","Bus",2.1831
+"260","West Bank","Accommodation",21.7927
+"261","West Bank","Internet",0
+"262","West Bank","Laundry",0.8426
+"263","West Bank","Tour",0
+"264","West Bank","Supplies",0
+"265","West Bank","Rental",0
+"266","West Bank","Alcohol",0
+"267","West Bank","Fees",0.5745
+"268","West Bank","Gas",0
+"269","West Bank","Entry",0
+"270","West Bank","ATM",0
+"271","West Bank","Gym",0
+"272","West Bank","Bathroom",0.0383
+"273","West Bank","Gambling",0
+"274","West Bank","Tip",0
+"275","West Bank","Gift",0.1532
+"276","West Bank","",0
+"277","Israel","Transit",0.790895
+"278","Israel","Food",11.809805
+"279","Israel","Sim",0
+"280","Israel","Taxi",0
+"281","Israel","Massage",0
+"282","Israel","Bus",7.4062625
+"283","Israel","Accommodation",8.59595625
+"284","Israel","Internet",0
+"285","Israel","Laundry",0
+"286","Israel","Tour",0
+"287","Israel","Supplies",0
+"288","Israel","Rental",0
+"289","Israel","Alcohol",0
+"290","Israel","Fees",5.76415
+"291","Israel","Gas",0
+"292","Israel","Entry",0.1005375
+"293","Israel","ATM",0
+"294","Israel","Gym",0
+"295","Israel","Bathroom",0
+"296","Israel","Gambling",0
+"297","Israel","Tip",0
+"298","Israel","Gift",0
+"299","Israel","",0
+"300","Egypt","Transit",0.091695652173913
+"301","Egypt","Food",7.12475217391304
+"302","Egypt","Sim",0
+"303","Egypt","Taxi",0.91695652173913
+"304","Egypt","Massage",0
+"305","Egypt","Bus",2.00202173913043
+"306","Egypt","Accommodation",4.9741597826087
+"307","Egypt","Internet",0
+"308","Egypt","Laundry",0.21395652173913
+"309","Egypt","Tour",0
+"310","Egypt","Supplies",0.77024347826087
+"311","Egypt","Rental",0.611304347826087
+"312","Egypt","Alcohol",0
+"313","Egypt","Fees",0.97654347826087
+"314","Egypt","Gas",0
+"315","Egypt","Entry",1.83696956521739
+"316","Egypt","ATM",0
+"317","Egypt","Gym",0.366782608695652
+"318","Egypt","Bathroom",0.0473760869565217
+"319","Egypt","Gambling",0
+"320","Egypt","Tip",0.163685652173913
+"321","Egypt","Gift",0.336217391304348
+"322","Egypt","",0
+"323","Turkey","Transit",1.77384727272727
+"324","Turkey","Food",13.5269159090909
+"325","Turkey","Sim",0.999090909090909
+"326","Turkey","Taxi",0.119890909090909
+"327","Turkey","Massage",1.71843636363636
+"328","Turkey","Bus",7.24340909090909
+"329","Turkey","Accommodation",11.2612118181818
+"330","Turkey","Internet",0
+"331","Turkey","Laundry",0.149863636363636
+"332","Turkey","Tour",5.59490909090909
+"333","Turkey","Supplies",8.43508445454545
+"334","Turkey","Rental",1.18725
+"335","Turkey","Alcohol",0.279745454545455
+"336","Turkey","Fees",0.430272727272727
+"337","Turkey","Gas",0.999090909090909
+"338","Turkey","Entry",2.76048636363636
+"339","Turkey","ATM",0
+"340","Turkey","Gym",0.719345454545455
+"341","Turkey","Bathroom",0.0399636363636364
+"342","Turkey","Gambling",-7.74395363636364
+"343","Turkey","Tip",0
+"344","Turkey","Gift",0.220799090909091
+"345","Turkey","",0.0299727272727273
+"346","Germany","Transit",4.04015625
+"347","Germany","Food",5.565909375
+"348","Germany","Sim",0
+"349","Germany","Taxi",0
+"350","Germany","Massage",0
+"351","Germany","Bus",7.6890625
+"352","Germany","Accommodation",11.254375
+"353","Germany","Internet",0
+"354","Germany","Laundry",0
+"355","Germany","Tour",0
+"356","Germany","Supplies",0
+"357","Germany","Rental",0
+"358","Germany","Alcohol",0.7921875
+"359","Germany","Fees",0.1584375
+"360","Germany","Gas",0
+"361","Germany","Entry",0
+"362","Germany","ATM",0
+"363","Germany","Gym",0
+"364","Germany","Bathroom",0.2851875
+"365","Germany","Gambling",7.921875
+"366","Germany","Tip",0
+"367","Germany","Gift",0
+"368","Germany","",0
+"369","Czech Republic","Transit",0.74304
+"370","Czech Republic","Food",13.139136
+"371","Czech Republic","Sim",0
+"372","Czech Republic","Taxi",2.7072
+"373","Czech Republic","Massage",0
+"374","Czech Republic","Bus",0.52416
+"375","Czech Republic","Accommodation",10.33344
+"376","Czech Republic","Internet",0
+"377","Czech Republic","Laundry",1.82016
+"378","Czech Republic","Tour",0
+"379","Czech Republic","Supplies",2.12544
+"380","Czech Republic","Rental",0
+"381","Czech Republic","Alcohol",1.31904
+"382","Czech Republic","Fees",0
+"383","Czech Republic","Gas",0
+"384","Czech Republic","Entry",1.0368
+"385","Czech Republic","ATM",0
+"386","Czech Republic","Gym",1.8432
+"387","Czech Republic","Bathroom",0
+"388","Czech Republic","Gambling",0
+"389","Czech Republic","Tip",0
+"390","Czech Republic","Gift",2.90304
+"391","Czech Republic","",0
+"392","England","Transit",6.70416666666667
+"393","England","Food",18.9432933333333
+"394","England","Sim",0
+"395","England","Taxi",3.48616666666667
+"396","England","Massage",0
+"397","England","Bus",9.38583333333333
+"398","England","Accommodation",0
+"399","England","Internet",0
+"400","England","Laundry",0
+"401","England","Tour",0
+"402","England","Supplies",0
+"403","England","Rental",0
+"404","England","Alcohol",0
+"405","England","Fees",0
+"406","England","Gas",0
+"407","England","Entry",0
+"408","England","ATM",0
+"409","England","Gym",0
+"410","England","Bathroom",0
+"411","England","Gambling",0
+"412","England","Tip",0
+"413","England","Gift",0
+"414","England","",0
+"415","France","Transit",0.60333
+"416","France","Food",20.833644
+"417","France","Sim",0
+"418","France","Taxi",0
+"419","France","Massage",0
+"420","France","Bus",12.13758
+"421","France","Accommodation",9.912864
+"422","France","Internet",0
+"423","France","Laundry",0.507
+"424","France","Tour",0
+"425","France","Supplies",0.88725
+"426","France","Rental",0
+"427","France","Alcohol",0
+"428","France","Fees",0
+"429","France","Gas",0
+"430","France","Entry",0
+"431","France","ATM",0
+"432","France","Gym",1.2675
+"433","France","Bathroom",0.04563
+"434","France","Gambling",0
+"435","France","Tip",0
+"436","France","Gift",0
+"437","France","",0
+"438","Norway","Transit",2.8644
+"439","Norway","Food",25.6461333333333
+"440","Norway","Sim",0
+"441","Norway","Taxi",0
+"442","Norway","Massage",0
+"443","Norway","Bus",29.9591933333333
+"444","Norway","Accommodation",15.708
+"445","Norway","Internet",0.308
+"446","Norway","Laundry",0.616
+"447","Norway","Tour",0
+"448","Norway","Supplies",0.811066666666667
+"449","Norway","Rental",0
+"450","Norway","Alcohol",0
+"451","Norway","Fees",0
+"452","Norway","Gas",0
+"453","Norway","Entry",0
+"454","Norway","ATM",0
+"455","Norway","Gym",0
+"456","Norway","Bathroom",0.513333333333333
+"457","Norway","Gambling",0
+"458","Norway","Tip",0
+"459","Norway","Gift",0
+"460","Norway","",0
+"461","Sweden","Transit",6.88545
+"462","Sweden","Food",20.93455
+"463","Sweden","Sim",0
+"464","Sweden","Taxi",0
+"465","Sweden","Massage",0
+"466","Sweden","Bus",0
+"467","Sweden","Accommodation",13.2145
+"468","Sweden","Internet",0
+"469","Sweden","Laundry",0
+"470","Sweden","Tour",0
+"471","Sweden","Supplies",1.763385
+"472","Sweden","Rental",0
+"473","Sweden","Alcohol",0
+"474","Sweden","Fees",0
+"475","Sweden","Gas",0
+"476","Sweden","Entry",0
+"477","Sweden","ATM",0
+"478","Sweden","Gym",5.564
+"479","Sweden","Bathroom",0
+"480","Sweden","Gambling",0
+"481","Sweden","Tip",0
+"482","Sweden","Gift",0
+"483","Sweden","",0
+"484","South Africa","Transit",1.29550804347826
+"485","South Africa","Food",9.87255763913043
+"486","South Africa","Sim",0.982934782608696
+"487","South Africa","Taxi",6.72327391304348
+"488","South Africa","Massage",0
+"489","South Africa","Bus",5.09160217391304
+"490","South Africa","Accommodation",5.81736304347826
+"491","South Africa","Internet",0.55044347826087
+"492","South Africa","Laundry",0.511126086956522
+"493","South Africa","Tour",10.0259347826087
+"494","South Africa","Supplies",0.165133043478261
+"495","South Africa","Rental",0
+"496","South Africa","Alcohol",0
+"497","South Africa","Fees",0
+"498","South Africa","Gas",0
+"499","South Africa","Entry",0.688054347826087
+"500","South Africa","ATM",0
+"501","South Africa","Gym",0
+"502","South Africa","Bathroom",0
+"503","South Africa","Gambling",0
+"504","South Africa","Tip",0.0365651739130435
+"505","South Africa","Gift",0.0570102173913043
+"506","South Africa","",0
+"507","Namibia","Transit",0
+"508","Namibia","Food",10.233145105
+"509","Namibia","Sim",0.451931425
+"510","Namibia","Taxi",0.0678225
+"511","Namibia","Massage",0
+"512","Namibia","Bus",13.11264
+"513","Namibia","Accommodation",6.33018
+"514","Namibia","Internet",0
+"515","Namibia","Laundry",0
+"516","Namibia","Tour",0
+"517","Namibia","Supplies",0
+"518","Namibia","Rental",0
+"519","Namibia","Alcohol",0
+"520","Namibia","Fees",0
+"521","Namibia","Gas",0.5652
+"522","Namibia","Entry",0
+"523","Namibia","ATM",0
+"524","Namibia","Gym",0
+"525","Namibia","Bathroom",0
+"526","Namibia","Gambling",0
+"527","Namibia","Tip",0.0474768
+"528","Namibia","Gift",0
+"529","Namibia","",0

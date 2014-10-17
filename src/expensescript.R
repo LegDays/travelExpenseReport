@@ -1,6 +1,9 @@
 rm(list = ls(all = TRUE)) #CLEAR WORKSPACE
 setwd("C:/Users/eung.cho/Desktop/legdays/travelExpenseReport")
 
+library(rCharts)
+library(rjson)
+library(ggplot2)
 source("src/getData.r")
 source("src/enrichData.r")
 source("src/filterData.r")
@@ -9,7 +12,7 @@ source("src/plotData.r")
 
 # Import data!
 myItinerary <- getItinerary("data/destinations.csv")
-myRawData <- getCashTrailsData("data/CashTrails-20141015_1737.csv")
+myRawData <- getCashTrailsData("data/CashTrails-20141016_1720.csv")
 myFXRates <- getExchangeRates("data/fxrates.csv", unique(myRawData$Currency))
 
 myEnrichedCTData <- enrichCTData(myRawData, myItinerary, myFXRates)
@@ -19,12 +22,10 @@ myFilteredCTData <- filterUnusualExpenses(myEnrichedCTData)
 
 myCountryDayCountTable <- getCountryDayCountTable(myItinerary)
 
-myTagCountryExpensePerDayMatrix <- constructTagCountryExpensePerDayMatrix(myFilteredCTData, myCountryDayCountTable)
+myTagCountryExpensePerDay <- constructTagCountryExpensePerDay(myFilteredCTData, myCountryDayCountTable)
 
-write.csv(myTagCountryExpensePerDayMatrix, file = "output/tagCountryExpensePerDay.csv")
-
-
-barplot(myTagCountryExpensePerDayMatrix, col = rainbow(20))
+write.csv(myTagCountryExpensePerDay, file = "output/tagCountryExpensePerDay.csv")
 
 plot(myEnrichedCTData$Date, cumsum(myEnrichedCTData$StandardizedAmount), type='h',
      col = as.factor(myEnrichedCTData$Country))
+
