@@ -61,29 +61,35 @@ getCumSumAtMoment <- function(aTime, aTagCumSum) {
 }
 
 
-getFullTimeTagCumSum <- function(aTag, aTagCTData, aTimes) {
+getFullTimeLabelCumSum <- function(aTag, aLabelCTData, aTimes) {
   # Assuming sorted
-  myTagCumSum <- data.frame(aTagCTData$UNIXTime, cumsum(aTagCTData$StandardizedAmount))
-  names(myTagCumSum) <- c("UNIXTime", "CumSum")
-  theFullTimeTagCumSum <- sapply(aTimes, function(x) getCumSumAtMoment(x, myTagCumSum))
-  return(theFullTimeTagCumSum)
+  myLabelCumSum <- data.frame(aLabelCTData$UNIXTime, cumsum(aLabelCTData$StandardizedAmount))
+  names(myLabelCumSum) <- c("UNIXTime", "CumSum")
+  theFullTimeLabelCumSum <- sapply(aTimes, function(x) getCumSumAtMoment(x, myLabelCumSum))
+  return(theFullTimeLabelCumSum)
 }
 
-constructTagCumSumPerTime <- function(aCTData) {
+constructLabelCumSumPerTime <- function(aCTData, aLabel = "Tag") {
   myTimes <- unique(aCTData$UNIXTime)
   # myTags <- unique(aCTData$Tag)
   # order of stacking from top to bottom
-  myTags <- rev(c("", "Food", "Accommodation", "Transit", "ATM", "Sim", "Massage", "Tip", "Gift",
-    "Supplies", "Gas", "Laundry", "Internet", "Bathroom", "Gym", "Alcohol", "Gambling",
-    "Taxi", "Bus", "Fees", "Rental", "Entry", "Tour"))
-  theAllTagCumSumFullTime <- data.frame()
-  
-  for (aTag in myTags) {
-    myIsTag <- aCTData$Tag == aTag
-    myTagCTData <- aCTData[myIsTag,]
-    myTagCumSumFullTime <- data.frame(myTimes, rep(aTag, length(myTimes)), getFullTimeTagCumSum(aTag, myTagCTData, myTimes))
-    names(myTagCumSumFullTime) <- c("UNIXTime", "Tag", "TagCumSum")
-    theAllTagCumSumFullTime <- rbind (myTagCumSumFullTime, theAllTagCumSumFullTime)
+  if(aLabel == "Tag") {
+    myLabels <- rev(c("", "Food", "Accommodation", "Transit", "ATM", "Sim", "Massage", "Tip", "Gift",
+                    "Supplies", "Gas", "Laundry", "Internet", "Bathroom", "Gym", "Alcohol", "Gambling",
+                    "Taxi", "Bus", "Fees", "Rental", "Entry", "Tour"))
+  } else if(aLabel == "Category") {
+    myLabels <- rev(c("Food", "Accommodation", "DayToDay", "Tourism", "Travel", "Taxi", "Luxury"))
+  } else {
+    stop("aLabel must be 'Tag' or 'Category'")
   }
-  return(theAllTagCumSumFullTime)
+  theAllLabelCumSumFullTime <- data.frame()
+  
+  for (myLabel in myLabels) {
+    myIsLabel <- aCTData[aLabel] == myLabel
+    myLabelCTData <- aCTData[myIsLabel,]
+    myLabelCumSumFullTime <- data.frame(myTimes, rep(myLabel, length(myTimes)), getFullTimeLabelCumSum(myLabel, myLabelCTData, myTimes))
+    names(myLabelCumSumFullTime) <- c("UNIXTime", aLabel, "CumSum")
+    theAllLabelCumSumFullTime <- rbind (myLabelCumSumFullTime, theAllLabelCumSumFullTime)
+  }
+  return(theAllLabelCumSumFullTime)
 }

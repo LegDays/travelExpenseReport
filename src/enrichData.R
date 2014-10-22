@@ -1,4 +1,4 @@
-enrichCTData <- function(aCTData, aItinerary, aFXRates) {
+enrichCTData <- function(aCTData, aItinerary, aFXRates, aTimeBucket = "minute") {
 #  expandAccommodationSpending(aCTData)
   aCTData <- aCTData[with(aCTData, order(aCTData$Date, aCTData$Time)), ]
   
@@ -6,7 +6,7 @@ enrichCTData <- function(aCTData, aItinerary, aFXRates) {
   aCTData["Category"] <- getCategoryColumn(aCTData)
   aCTData["StandardizedAmount"] <- getStandardizedAmountColumn(aCTData, aFXRates)
   aCTData["TagCumSum"] <- getTagCumSumColumn(aCTData)
-  aCTData["UNIXTime"] <- getUNIXTimeColumn(aCTData)
+  aCTData["UNIXTime"] <- getUNIXTimeColumn(aCTData, aTimeBucket)
   
   return(aCTData)
 }
@@ -31,11 +31,32 @@ getCountryColumn <- function(aCTData, aItinerary) {
 
 assignCategory <- function(aTag) {
   myLuxuryTags <- c("Massage", "Alcohol", "Gambling", "Tip", "Gift")
-  myTourismTags <- c("Tour", "Rental", "Entry", "Supplies", "Fees")
-  myCostOfLivingTags <- c("Accommodation", "Supplies", "Gym", "Food", "Internet",
-                          "Laundry", "Bathroom", "ATM", "Transit")
-  myTravelTags <- c("Plane", "Gas", "Taxi", "Bus")
-  return(aTag)
+  myTourismTags <- c("Tour", "Rental", "Entry", "Fees")
+  myFoodTags <- c("Food")
+  myAccommodationTags <- c("Accommodation")
+  myDayToDayTags <- c("Supplies", "Gym", "Internet", "Laundry", "Bathroom", "ATM", "Transit")
+  myTaxiTags <- c("Taxi")
+  myTravelTags <- c("Plane", "Gas", "Bus")
+
+  #Right now, just returning tag
+  if(aTag %in% myLuxuryTags) {
+    theTag = "Luxury"
+  } else if(aTag %in% myTourismTags) {
+    theTag = "Tourism"
+  } else if(aTag %in% myFoodTags) {
+    theTag = "Food"
+  } else if(aTag %in% myAccommodationTags) {
+    theTag = "Accommodation"
+  } else if(aTag %in% myDayToDayTags) {
+    theTag = "DayToDay"
+  } else if(aTag %in% myTaxiTags) {
+    theTag = "Taxi"
+  } else if(aTag %in% myTravelTags) {
+    theTag = "Travel"
+  } else {
+    theTag = aTag
+  }
+  return(theTag)
 }
 
 getCategoryColumn <- function(aCTData) {
@@ -66,8 +87,14 @@ getTagCumSumColumn <- function(aCTData) {
   return(theTagCumSumColumn)
 }
 
-getUNIXTimeColumn <- function(aCTData) {
-  theUNIXTimeColumn <- mapply(function(x, y) as.numeric(as.POSIXct(paste(x, y), format="%Y-%m-%d %H:%M")), aCTData$Date, aCTData$Time)
+getUNIXTimeColumn <- function(aCTData, aTimeBucket) {
+  if(aTimeBucket == "minute") {
+    theUNIXTimeColumn <- mapply(function(x, y) as.numeric(as.POSIXct(paste(x, y), format="%Y-%m-%d %H:%M")), aCTData$Date, aCTData$Time)
+  } else if(aTimeBucket == "day") {
+    theUNIXTimeColumn <- sapply(aCTData$Date, function(x) as.numeric(as.POSIXct(x, format="%Y-%m-%d")))
+  } else {
+    stop("aTimeBucket must be 'minute' or 'day'")
+  }
   return(theUNIXTimeColumn)
 }
 

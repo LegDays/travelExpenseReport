@@ -16,16 +16,16 @@ myCountryDayCountTable <- getCountryDayCountTable(myItinerary)
 myRawData <- getCashTrailsData("data/CashTrails-20141016_1720.csv")
 myFXRates <- getExchangeRates("data/fxrates.csv", unique(myRawData$Currency))
 
-myEnrichedCTData <- enrichCTData(myRawData, myItinerary, myFXRates)
+myEnrichedCTData <- enrichCTData(myRawData, myItinerary, myFXRates, "day")
 # Check border transactions
 # myEnrichedCTData[is.na(myEnrichedCTData$Country),]
 myFilteredCTData <- filterUnusualExpenses(myEnrichedCTData)
 
 myTagCountryExpensePerDay <- constructTagCountryExpensePerDay(myFilteredCTData, myCountryDayCountTable)
 
-myTagCumSumPerTime <- constructTagCumSumPerTime(myFilteredCTData)
-ggplot(myTagCumSumPerTime, aes(x=UNIXTime,y=TagCumSum,group=Tag,fill=Tag)) + geom_area(position="stack")
-p2 <- nPlot(TagCumSum ~ UNIXTime, group = 'Tag', data = myTagCumSumPerTime, type = 'stackedAreaChart')
+myCumSumPerTime <- constructLabelCumSumPerTime(myFilteredCTData, "Category")
+# ggplot(myTagCumSumPerTime, aes(x=UNIXTime,y=TagCumSum,group=Tag,fill=Tag)) + geom_area(position="stack")
+p2 <- nPlot(CumSum ~ UNIXTime, group = 'Category', data = myCumSumPerTime, type = 'stackedAreaChart')
 p2
 
 plot(myEnrichedCTData$Date, cumsum(myEnrichedCTData$StandardizedAmount), type='h',
