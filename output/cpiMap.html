@@ -1,0 +1,214 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="By Country : Cost of Living Index, Consumer Price Index, Rent Index, Restaurant Price Index, ... " />
+            <script type="text/javascript" src="../common/numbeo_standard.js"></script>
+    <link type="text/css" href="../common/css/redmond/jquery-ui-1.10.3.custom.min.css" rel="Stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <!-- script src="http://platform.linkedin.com/in.js" type="text/javascript"></script -->
+    <script type="text/javascript" src="../common/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../common/js/jquery-ui-1.10.3.custom.min.js"></script>
+   <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <link rel="stylesheet" type="text/css" href="../common/style.css" />
+    <link rel="stylesheet" type="text/css" href="../common/style_desktop.css" />
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#nav-one li").hover(
+		function(){ $("ul", this).fadeIn("fast"); },
+		function() { }
+	);
+	if (document.all) {
+		$("#nav-one li").hoverClass ("sfHover");
+	}
+});
+$.fn.hoverClass = function(c) {
+	return this.each(function(){
+		$(this).hover(
+			function() { $(this).addClass(c);  },
+			function() { $(this).removeClass(c); }
+		);
+	});
+};
+</script>
+<script type="text/javascript" src="../common/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../common/css/datatables/jquery.dataTables_themeroller.css"/>
+
+            <script type="text/javascript" src="../common/numbeo_standard.js"></script>
+    <link type="text/css" href="../common/css/redmond/jquery-ui-1.10.3.custom.min.css" rel="Stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <!-- script src="http://platform.linkedin.com/in.js" type="text/javascript"></script -->
+    <script type="text/javascript" src="../common/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../common/js/jquery-ui-1.10.3.custom.min.js"></script>
+   <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <link rel="stylesheet" type="text/css" href="../common/style.css" />
+    <link rel="stylesheet" type="text/css" href="../common/style_desktop.css" />
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#nav-one li").hover(
+		function(){ $("ul", this).fadeIn("fast"); },
+		function() { }
+	);
+	if (document.all) {
+		$("#nav-one li").hoverClass ("sfHover");
+	}
+});
+$.fn.hoverClass = function(c) {
+	return this.each(function(){
+		$(this).hover(
+			function() { $(this).addClass(c);  },
+			function() { $(this).removeClass(c); }
+		);
+	});
+};
+</script>
+
+<title>World Map of Consumer Price Index (CPI) 2015</title>
+ <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Country');
+        data.addColumn('number', 'Consumer Price Index (CPI)');
+        data.addRows([
+        ['Portugal', 58.22],
+        ['Belarus', 50.20],
+        ['Philippines', 40.00],
+        ['Hong Kong', 75.23],
+        ['Morocco', 39.78],
+        ['Tanzania', 57.13],
+        ['Ecuador', 45.57],
+        ['Indonesia', 39.35],
+        ['Luxembourg', 91.78],
+        ['Chile', 53.21],
+        ['Nicaragua', 47.85],
+        ['France', 88.37],
+        ['Puerto Rico', 73.50],
+        ['Bahrain', 56.17],
+        ['Latvia', 55.94],
+        ['Bangladesh', 39.22],
+        ['Panama', 55.16],
+        ['Uzbekistan', 55.92],
+        ['Oman', 54.20],
+        ['Turkey', 49.55],
+        ['Czech Republic', 48.50],
+        ['Mexico', 41.26],
+        ['Canada', 81.80],
+        ['Mozambique', 59.92],
+        ['Romania', 42.39],
+        ['Iceland', 102.14],
+        ['Algeria', 34.10],
+        ['United States', 76.53],
+        ['Belize', 68.74],
+        ['Saudi Arabia', 50.35],
+        ['Syria', 38.24],
+        ['Lebanon', 67.61],
+        ['Ireland', 92.09],
+        ['Colombia', 38.92],
+        ['Switzerland', 126.03],
+        ['El Salvador', 50.64],
+        ['Malaysia', 45.97],
+        ['South Africa', 45.58],
+        ['Albania', 41.95],
+        ['Palestinian Territory', 53.27],
+        ['Slovenia', 65.15],
+        ['Guatemala', 50.42],
+        ['Austria', 76.87],
+        ['Egypt', 37.22],
+        ['Hungary', 48.90],
+        ['Mauritius', 60.10],
+        ['Argentina', 67.12],
+        ['Poland', 45.11],
+        ['Georgia', 39.56],
+        ['Russia', 61.91],
+        ['Bulgaria', 43.57],
+        ['Norway', 118.59],
+        ['Germany', 76.27],
+        ['New Zealand', 93.71],
+        ['Japan', 80.36],
+        ['South Korea', 82.90],
+        ['United Arab Emirates', 67.16],
+        ['Iran', 44.53],
+        ['Taiwan', 57.06],
+        ['Slovakia', 51.60],
+        ['Greece', 68.88],
+        ['Costa Rica', 62.53],
+        ['Thailand', 46.52],
+        ['Ukraine', 41.29],
+        ['Sri Lanka', 41.66],
+        ['Italy', 82.72],
+        ['Iraq', 48.21],
+        ['India', 26.27],
+        ['Moldova', 34.72],
+        ['Macedonia', 37.41],
+        ['Jordan', 61.38],
+        ['Kosovo (Disputed Territory)', 40.17],
+        ['Cyprus', 72.52],
+        ['Denmark', 100.60],
+        ['Kuwait', 92.97],
+        ['Namibia', 53.67],
+        ['Myanmar', 53.04],
+        ['Ghana', 71.83],
+        ['Pakistan', 30.71],
+        ['Uruguay', 68.55],
+        ['Libya', 52.12],
+        ['Montenegro', 48.09],
+        ['Armenia', 40.68],
+        ['Brazil', 55.33],
+        ['Venezuela', 111.01],
+        ['Croatia', 58.92],
+        ['Zimbabwe', 65.89],
+        ['Sweden', 82.91],
+        ['Serbia', 43.29],
+        ['Qatar', 74.00],
+        ['Nigeria', 59.40],
+        ['Estonia', 61.20],
+        ['Spain', 65.70],
+        ['Israel', 79.29],
+        ['Bosnia And Herzegovina', 42.30],
+        ['Nepal', 28.85],
+        ['Azerbaijan', 59.13],
+        ['Bolivia', 40.02],
+        ['Vietnam', 41.86],
+        ['Ethiopia', 51.47],
+        ['Kenya', 50.01],
+        ['Honduras', 53.06],
+        ['Australia', 99.32],
+        ['Peru', 49.43],
+        ['Tunisia', 34.06],
+        ['Netherlands', 85.98],
+        ['China', 48.89],
+        ['Trinidad And Tobago', 59.08],
+        ['Finland', 89.68],
+        ['Lithuania', 52.76],
+        ['Uganda', 53.90],
+        ['Jamaica', 63.56],
+        ['Malta', 68.81],
+        ['United Kingdom', 92.19],
+        ['Cambodia', 57.05],
+        ['Belgium', 87.22],
+        ['Singapore', 93.61],
+        ['Dominican Republic', 55.95],
+        ['Kazakhstan', 54.27],
+        ]);
+
+        var options = {
+          colorAxis: {colors: ['#3c6950', '#668d76', '#8cae99', '#b0c9b8', '#eaa087', '#e98e73', '#ea593e', '#e3000b']}
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    };
+    </script>
+
+</head>
+<body>
+
+    <div style="width:100%;" id="header_gmaps">
+ </div>
+    <div id="chart_div" class="country_gmaps_rankings"></div>
+</body>
+</html>
